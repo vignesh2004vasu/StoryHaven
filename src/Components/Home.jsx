@@ -4,7 +4,7 @@ import axios from 'axios';
 import NavHome from "./NavHome";
 import { useNavigate } from "react-router-dom";
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import Loader from "./Loader"; // Assuming Loader is the component for the loading animation
+
 
 import Footer from './Footer';
 import { selectBook } from './BookSlice';
@@ -28,7 +28,7 @@ export default function Home() {
 
     const fetchBooks = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/books");
+        const response = await axios.get("https://storyhaven1.onrender.com/books");
         setBooks(response.data || []);
         setFilteredBooks(response.data || []);
         

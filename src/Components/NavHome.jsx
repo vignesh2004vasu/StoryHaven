@@ -1,9 +1,8 @@
-// NavHome.jsx
-import { useState } from 'react';
+
 import '../Assets/NavHome.css';
 import w1 from '../Assets/icons8-book-64.png';
 import { Link } from 'react-router-dom';
-import IconButton from '@mui/material/IconButton';
+
 import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
@@ -12,7 +11,7 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import { useSelector,useDispatch } from 'react-redux';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { setSearchTerm } from './BookSlice';
-import SearchIcon from '@mui/icons-material/Search';
+
 import SupervisorAccountIcon from '@mui/icons-material/SupervisorAccount';
 
 const StyledBadge = styled(Badge)(({ theme }) => ({

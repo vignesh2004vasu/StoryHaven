@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import Navbar from './Navbar';
 import axios from 'axios';
-import Users from './Users';
+
 
 export default function Login()
 {
@@ -26,7 +26,7 @@ const navigate = useNavigate();
   
       try {
           
-          const response = await axios.get('http://localhost:8080/users');
+          const response = await axios.get('https://storyhaven1.onrender.com/users');
   
       
           const foundUser = response.data.find(
@@ -93,7 +93,7 @@ return(
       <a>Sign Up</a>
       </Link>
       </p>
-      <p><a href="" className="a2">If Admin,</a>
+      <p><a className="a2">If Admin,</a>
       <Link to='/admin'>
         
       <a className='a2'>Click Here</a>

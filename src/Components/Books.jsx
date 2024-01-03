@@ -19,7 +19,7 @@ function Books() {
 
   const loadBooks = async () => {
     try {
-      const result = await axios.get("http://localhost:8080/books");
+      const result = await axios.get("https://storyhaven1.onrender.com/books");
       setBooks(result.data);
     } catch (error) {
       alert("Error loading books");

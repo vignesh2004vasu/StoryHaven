@@ -24,18 +24,18 @@ function EditUser() {
 
     useEffect(() => {
         loadUser();
-    }, []);
+    },);
 
     const onSubmit = async (e) => {
         e.preventDefault();
 
-        await axios.put(`http://localhost:8080/user/${id}`, user);
+        await axios.put(`https://storyhaven1.onrender.com/user/${id}`, user);
         navigate('/user');
     };
 
     const loadUser = async () => {
         try {
-            const result = await axios.get(`http://localhost:8080/user/${id}`);
+            const result = await axios.get(`https://storyhaven1.onrender.com/user/${id}`);
             const userData = result.data;
             setUser((prevUser) => ({ ...prevUser, ...userData }));
         } catch (error) {
