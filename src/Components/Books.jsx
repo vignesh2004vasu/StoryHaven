@@ -28,7 +28,7 @@ function Books() {
 
   const deleteBook = async (id) => {
     try {
-      await axios.delete(`http://localhost:8080/book/${id}`);
+      await axios.delete(`https://storyhaven1.onrender.com/book/${id}`);
       loadBooks();
     } catch (error) {
       console.error("Error deleting book:", error);
