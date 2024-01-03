@@ -1,2 +1,0 @@
-# BookStore2.0
-
