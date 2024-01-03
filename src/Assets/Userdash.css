@@ -1,0 +1,128 @@
+.dashboard{
+    display: flex;
+    flex-direction: column;
+   
+}
+.dashboard>img{
+    
+}
+.user-details {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 50px;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+    background-color: #eb9d0e;
+    width: 90%;
+    height: 30vh;
+    border-radius: 10px;
+}
+
+.dashitems {
+    display: flex;
+    margin-top: 20px;
+    margin-right: 90px;
+  }
+  
+  .leftitem {
+    flex: 1;
+  }
+  
+  .rightitem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    margin-left: 20px;
+  }
+  
+  .prevorder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+    padding: 20px;
+    background-color: #7d4208;
+    width: 100%; /* Adjust as needed */
+    border-radius: 10px;
+  }
+  
+  .prevorder h2 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    text-align: center;
+    color: white;
+  }
+  
+  .book-details {
+    background-color: rgb(240, 152, 64);
+    border: 1px solid #ddd;
+    width: 80%;
+    border-radius: 5px;
+    padding: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .book-details h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #333;
+  }
+  
+  .book-details p {
+    margin: 6px 0;
+    color: #666;
+  }
+  
+  .book-details:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+  }
+  
+  .cartdisp {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(78, 30, 7);
+    width: 100%; /* Adjust as needed */
+    margin-top: 10px;
+    color:white;
+    padding-inline-start: 10px;
+    border-radius: 10px;
+    height: 40vh;
+    margin-bottom: 40px;
+  }
+  
+  @media (max-width: 768px) {
+    .dashboard {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .rightitem {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  .leftitem
+  {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: beige;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: 47px;
+    margin-bottom: 40px;
+  }
+
+  .favitem
+  {
+    background-color: ;
+  }

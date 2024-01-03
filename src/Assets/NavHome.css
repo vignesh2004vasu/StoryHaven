@@ -1,0 +1,93 @@
+/* NavHome.css */
+
+/* Styles for the navbar */
+.title-class {
+  color: white;
+  margin-right: 10px;
+}
+
+.navbar-custom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* This evenly distributes the left and right sections */
+  width: 100vw;
+  height: 5rem;
+  /* background-color: #15037c; */
+  /* background-color: #9c560a; */
+  background-color: #000000;
+  position: sticky;
+  top: 0;
+  padding: 0 20px; /* Add padding to the navbar for some space around its content */
+}
+
+/* Styles for the navigation links */
+.nav-links-custom {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.nav-links-custom li {
+  margin-right: 20px;
+}
+
+.nav-links-custom a {
+  font-size: larger;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-links-custom a:hover {
+  border-bottom: 4px solid;
+  border-radius: 2%;
+}
+
+.nav-links-custom li:hover a {
+  border-bottom: none;
+}
+
+.leftside {
+  display: flex;
+  align-items: center; /* Vertically center the items */
+}
+.rightside {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.homelink
+{
+  margin-right: 30px;
+}
+
+.InputContainer {
+  width: 300px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(to bottom,rgb(53, 232, 8),rgb(196, 248, 9));
+  border-radius: 5px;
+  overflow: hidden;
+  cursor: pointer;
+  padding-left: 5px;
+  padding-right: 5px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.075);
+}
+
+.input {
+  width: 200px;
+  height: 40px;
+  border: none;
+  outline: none;
+  caret-color: rgb(255, 81, 0);
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  padding-left: 15px;
+  letter-spacing: 0.8px;
+  color: rgb(19, 19, 19);
+  font-size: 13.4px;
+}

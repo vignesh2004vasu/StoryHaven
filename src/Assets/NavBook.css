@@ -1,0 +1,50 @@
+.book-navbar {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    width: 100vw;
+    height: 5rem;
+    /* background-color: #15037c; */
+    background-color: #321325;
+    position: sticky;
+    top: 0;
+
+  }
+  
+  
+  #book-home{
+    padding-left: 1080px;
+    
+  }
+  
+  .book-nav-links {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+    
+  .book-nav-links li {
+    margin-right: 20px; 
+
+    
+  }
+  
+  .book-nav-links a {
+    font-size: larger;
+    text-decoration: none;
+    color: white;
+    
+  
+  }
+  
+  .book-nav-links a:hover {
+    border-bottom: 4px solid;
+    
+    border-radius: 2%;
+  }
+  
+  .nav-links li:hover a {
+    border-bottom: none; 
+  }
+  

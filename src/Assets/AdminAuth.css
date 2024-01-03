@@ -1,0 +1,57 @@
+/* AdminAuth.css */
+
+/* Overall container */
+.AdminAuthContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin-top:-70px;
+    font-family: Arial, sans-serif;
+    
+  }
+
+  .adminform
+  {
+    padding: 30px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #493638;
+    gap: 2rem;
+    border-radius: 10px;
+    height: 40vh;
+  }
+  
+  /* Heading style */
+  h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  /* Input fields */
+  .admininput {
+    width: 250px;
+    padding: 8px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Button style */
+  button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  

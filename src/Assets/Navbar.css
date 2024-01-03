@@ -1,0 +1,62 @@
+/* NavHome.css */
+
+/* Styles for the navbar */
+.title-class {
+  color: white;
+  margin-right: 10px;
+}
+
+.navbar-custom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* This evenly distributes the left and right sections */
+  width: 100vw;
+  height: 5rem;
+  background-color: #321325;
+  position: sticky;
+  top: 0;
+  padding: 0 20px; /* Add padding to the navbar for some space around its content */
+}
+
+/* Styles for the navigation links */
+.nav-links-custom {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+}
+
+.nav-links-custom li {
+  margin-right: 20px;
+}
+
+.nav-links-custom a {
+  font-size: larger;
+  text-decoration: none;
+  color: white;
+}
+
+.nav-links-custom a:hover {
+  border-bottom: 4px solid;
+  border-radius: 2%;
+}
+
+.nav-links-custom li:hover a {
+  border-bottom: none;
+}
+
+.leftside {
+  display: flex;
+  align-items: center; /* Vertically center the items */
+}
+.rightside {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.homelink
+{
+  margin-right: 30px;
+}
