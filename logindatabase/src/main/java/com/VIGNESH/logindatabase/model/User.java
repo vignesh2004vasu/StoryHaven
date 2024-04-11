@@ -1,8 +1,9 @@
 package com.VIGNESH.logindatabase.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 public class User {
@@ -13,6 +14,8 @@ public class User {
     private String username;
     private String email;
     private String password;
+
+
 
     public Long getId() {
         return id;

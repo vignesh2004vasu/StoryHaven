@@ -6,6 +6,10 @@ import com.VIGNESH.logindatabase.model.Book;
 import com.VIGNESH.logindatabase.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
+
 
 import java.util.List;
 
@@ -21,12 +25,23 @@ public class BookController {
     Book newBook(@RequestBody Book newBook) {
         return bookRepository.save(newBook);
     }
+    
+    @PostMapping("/add")
+    public List<Book> addBooks(@RequestBody List<Book> books) {
+        return bookRepository.saveAll(books);
+    }
 
     @GetMapping("/books")
     List<Book> getAllBooks() {
         return bookRepository.findAll();
     }
 
+    @GetMapping("/pagebooks")
+    Page<Book> getAllBooks(@RequestParam(defaultValue = "0") int page,
+                           @RequestParam(defaultValue = "10") int size,
+                           @RequestParam(defaultValue = "title") String sortBy) {
+        return bookRepository.findAll(PageRequest.of(page, size, Sort.by(sortBy)));
+    }
     @GetMapping("/book/{id}")
     Book getBookById(@PathVariable Long id) {
         return bookRepository.findById(id)
@@ -54,5 +69,32 @@ public class BookController {
         }
         bookRepository.deleteById(id);
         return "Book with ID " + id + " has been deleted successfully.";
+    }
+
+
+    @GetMapping("/books/sortedByAuthor")
+    List<Book> getAllBooksSortedByAuthor() {
+        return bookRepository.findAll(Sort.by(Sort.Direction.ASC, "author"));
+    }
+
+
+    @GetMapping("/books/sortedByGenre")
+    List<Book> getAllBooksSortedByGenre() {
+        return bookRepository.findAll(Sort.by(Sort.Direction.ASC, "genre"));
+    }
+
+    @GetMapping("/books/byAuthor/{author}")
+    List<Book> getBooksByAuthor(@PathVariable String author) {
+        return bookRepository.findByAuthor(author);
+    }
+
+    @GetMapping("/books/byGenre/{genre}")
+    List<Book> getBooksByGenre(@PathVariable String genre) {
+        return bookRepository.findByGenre(genre);
+    }
+
+    @GetMapping("/books/priceLessThan/{price}")
+    List<Book> getBooksPriceLessThan(@PathVariable String price) {
+        return bookRepository.findByPriceLessThan(price);
     }
 }
