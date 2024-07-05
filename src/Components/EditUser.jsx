@@ -29,13 +29,13 @@ function EditUser() {
     const onSubmit = async (e) => {
         e.preventDefault();
 
-        await axios.put(`https://storyhaven1.onrender.com/user/${id}`, user);
+        await axios.put(`https://storyhaven-backend.onrender.com/user/${id}`, user);
         navigate('/user');
     };
 
     const loadUser = async () => {
         try {
-            const result = await axios.get(`https://storyhaven1.onrender.com/user/${id}`);
+            const result = await axios.get(`https://storyhaven-backend.onrender.com/user/${id}`);
             const userData = result.data;
             setUser((prevUser) => ({ ...prevUser, ...userData }));
         } catch (error) {

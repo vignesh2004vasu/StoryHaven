@@ -28,7 +28,7 @@ export default function Home() {
 
     const fetchBooks = async () => {
       try {
-        const response = await axios.get("https://storyhaven1.onrender.com/books");
+        const response = await axios.get("https://storyhaven-backend.onrender.com/books");
         setBooks(response.data || []);
         setFilteredBooks(response.data || []);
         

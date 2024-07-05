@@ -26,7 +26,7 @@ const navigate = useNavigate();
   
       try {
           
-          const response = await axios.get('https://storyhaven1.onrender.com/users');
+          const response = await axios.get('https://storyhaven-backend.onrender.com/users');
   
       
           const foundUser = response.data.find(

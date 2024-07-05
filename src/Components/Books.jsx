@@ -19,7 +19,7 @@ function Books() {
 
   const loadBooks = async () => {
     try {
-      const result = await axios.get("https://storyhaven1.onrender.com/books");
+      const result = await axios.get("https://storyhaven-backend.onrender.com/books");
       setBooks(result.data);
     } catch (error) {
       alert("Error loading books");
@@ -28,7 +28,7 @@ function Books() {
 
   const deleteBook = async (id) => {
     try {
-      await axios.delete(`https://storyhaven1.onrender.com/book/${id}`);
+      await axios.delete(`https://storyhaven-backend.onrender.com/book/${id}`);
       loadBooks();
     } catch (error) {
       console.error("Error deleting book:", error);

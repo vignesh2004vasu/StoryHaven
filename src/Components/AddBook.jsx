@@ -27,7 +27,7 @@ const AddBook = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://storyhaven1.onrender.com/book",
+        "https://storyhaven-backend.onrender.com/book",
         bookData
       );
       console.log("Book added:", response.data);
