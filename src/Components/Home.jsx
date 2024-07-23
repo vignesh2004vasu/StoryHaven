@@ -1,40 +1,39 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import axios from 'axios';
-import NavHome from "./NavHome";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-
-
-import Footer from './Footer';
-import { selectBook } from './BookSlice';
-import { addToCart } from './CartSlice';
-import '../Assets/Home.css'
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import Footer from "./Footer";
+import { selectBook } from "./BookSlice";
+import { addToCart } from "./CartSlice";
+import Navbar from "./Navbar";
 
 export default function Home() {
-  const [localStorageItem, setLocalStorageItem] = useState('');
+  const [localStorageItem, setLocalStorageItem] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const searchTerm = useSelector((state) => state.book.searchTerm);
   const [books, setBooks] = useState([]);
   const [filteredBooks, setFilteredBooks] = useState([]);
-  
 
   useEffect(() => {
-    const itemFromLocalStorage = localStorage.getItem('username');
+    const itemFromLocalStorage = localStorage.getItem("username");
     if (itemFromLocalStorage) {
       setLocalStorageItem(itemFromLocalStorage);
     }
 
     const fetchBooks = async () => {
+      const toastId = toast.info("Please wait for backend render coldboot.", { autoClose: false });
       try {
         const response = await axios.get("https://storyhaven-backend.onrender.com/books");
         setBooks(response.data || []);
         setFilteredBooks(response.data || []);
-        
+        toast.update(toastId, { render: "Books fetched successfully!", type: toast.TYPE.SUCCESS, autoClose: 5000 });
       } catch (error) {
+        toast.update(toastId, { render: "Error fetching books!", type: toast.TYPE.ERROR, autoClose: 5000 });
         console.error(error);
-        
       }
     };
     fetchBooks();
@@ -43,17 +42,18 @@ export default function Home() {
   useEffect(() => {
     if (books && books.length > 0 && searchTerm) {
       const filtered = books.filter((book) => {
-        const title = book.title ? book.title.toLowerCase() : '';
-        const genre = book.genre ? book.genre.toLowerCase() : '';
-        return title.includes(searchTerm.toLowerCase()) || genre.includes(searchTerm.toLowerCase());
+        const title = book.title ? book.title.toLowerCase() : "";
+        const genre = book.genre ? book.genre.toLowerCase() : "";
+        return (
+          title.includes(searchTerm.toLowerCase()) ||
+          genre.includes(searchTerm.toLowerCase())
+        );
       });
       setFilteredBooks(filtered);
     } else {
       setFilteredBooks(books);
     }
   }, [searchTerm, books]);
-
-
 
   const handleClick = (book) => {
     dispatch(selectBook(book));
@@ -64,19 +64,16 @@ export default function Home() {
     dispatch(addToCart(book));
   };
 
-
   return (
-    <>
-      <NavHome />
-
-      
+    <div className="Homepage">
+      <Navbar />
       <div className="home-container">
         <span className="dash">
           <h1>Hello {localStorageItem},</h1>
           <br />
           <h2>Looking for Books?</h2>
         </span>
-        
+
         <span className="showcase">
           <h1>Showcase</h1>
           <p>Your Books</p>
@@ -91,10 +88,15 @@ export default function Home() {
       <div className="book-grid">
         {filteredBooks.map((book) => (
           <div className="book-item" key={book.id}>
-            <img src={book.imageUrl} alt={book.title} onClick={() => handleClick(book)} />
+            <img
+              src={book.imageUrl}
+              alt={book.title}
+              onClick={() => handleClick(book)}
+              style={{ height: "200px" }}
+            />
             <h3>{book.title}</h3>
             <p>By {book.author}</p>
-            <p>Price: {book.price}</p>
+            <p>Price: ₹{book.price}</p>
             <div className="reviews">
               Reviews:
               {Array.from({ length: book.reviews }, (_, index) => (
@@ -103,13 +105,16 @@ export default function Home() {
                 </span>
               ))}
             </div>
-            <button className="cart-button" onClick={() => handleAddToCart(book)}>
+            <button
+              className="cart-button"
+              onClick={() => handleAddToCart(book)}
+            >
               <ShoppingCartIcon fontSize="large" />
             </button>
           </div>
         ))}
       </div>
-      <Footer />
-    </>
+      <ToastContainer />
+    </div>
   );
 }

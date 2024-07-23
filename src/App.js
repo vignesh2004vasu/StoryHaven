@@ -1,5 +1,5 @@
 
-import './Assets/App.css';
+
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Login from './Components/Login';
 import Register from './Components/Register';
@@ -23,9 +23,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/login" element={<Login />} />
-        <Route path="/" element={<Login />} />
+        <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/home" element={<Home />} />
         <Route path="/user" element={<Users />} />
         <Route path="/admin" element={<AdminAuth />} />
         <Route path="/book/:id" element={<BookDetails/>} />
@@ -36,6 +35,7 @@ function App() {
         <Route path="/cart" element={<Cart/>}/>
         <Route path="/userdash" element={<Userdash/>}/>
         <Route path="/load" element={<Loader/>}/>
+      
         
         
       </Routes>

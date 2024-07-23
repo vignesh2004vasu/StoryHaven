@@ -35,14 +35,14 @@ export default function AdminAuth() {
                     <input
                         className='admininput'
                         type="text"
-                        placeholder="Admin ID"
+                        placeholder="Username : admin"
                         value={adminId}
                         onChange={(e) => setAdminId(e.target.value)}
                     />
                     <input
                         className='admininput'
                         type="password"
-                        placeholder="Password"
+                        placeholder="Password : admin"
                         value={adminPassword}
                         onChange={(e) => setAdminPassword(e.target.value)}
                     />

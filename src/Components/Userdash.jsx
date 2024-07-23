@@ -1,33 +1,35 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
-import '../Assets/Userdash.css';
-import NavHome from './NavHome';
-import { useSelector } from 'react-redux';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import "../Assets/Userdash.css";
+import NavHome from "./NavHome";
+import { useSelector } from "react-redux";
+import Navbar from "./Navbar";
 
 export default function Userdash() {
-  const [localStorageItem, setLocalStorageItem] = useState('');
+  const [localStorageItem, setLocalStorageItem] = useState("");
   const [randomBooks, setRandomBooks] = useState([]);
   const cartItems = useSelector((state) => state.cart.items);
 
   useEffect(() => {
-    const itemFromLocalStorage = localStorage.getItem('username');
+    const itemFromLocalStorage = localStorage.getItem("username");
     if (itemFromLocalStorage) {
       setLocalStorageItem(itemFromLocalStorage);
     }
 
     // Fetching all books from the API
-    axios.get('https://storyhaven-backend.onrender.com/books')
-      .then(response => {
+    axios
+      .get("https://storyhaven-backend.onrender.com/books")
+      .then((response) => {
         const allBooks = response.data;
 
         // Get 3 random books from the fetched data
         const randomIndices = getRandomIndices(allBooks.length, 3);
-        const selectedBooks = randomIndices.map(index => allBooks[index]);
+        const selectedBooks = randomIndices.map((index) => allBooks[index]);
 
         setRandomBooks(selectedBooks);
       })
-      .catch(error => {
-        console.error('Error fetching books:', error);
+      .catch((error) => {
+        console.error("Error fetching books:", error);
       });
   }, []);
 
@@ -46,15 +48,19 @@ export default function Userdash() {
   };
 
   // Extracting cart item names
-  const cartItemNames = cartItems.map(item => item.title); // Adjust 'name' to your actual property name for item names
+  const cartItemNames = cartItems.map((item) => item.title); // Adjust 'name' to your actual property name for item names
 
   return (
     <>
-      <NavHome />
+      <Navbar />
       <div className="dashboard">
         <div className="user-details">
           <div className="user-photo">
-            <img src='https://cdn-icons-png.flaticon.com/512/219/219988.png' alt="User's Photo" style={{ height: '100px', width: '100px' }} />
+            <img
+              src="https://cdn-icons-png.flaticon.com/512/219/219988.png"
+              alt="User's Photo"
+              style={{ height: "100px", width: "100px" }}
+            />
           </div>
           <div className="user-info">
             <h2>{localStorageItem}</h2>
@@ -62,25 +68,24 @@ export default function Userdash() {
             <p>Location: Coimbatore, Tamil Nadu</p>
           </div>
         </div>
-        <div className='dashitems'>
-          <div className='leftitem'>
+        <div className="dashitems">
+          <div className="leftitem">
             <h1>Favourites</h1>
-            <div className='favitem'>
-            {randomBooks.map((book, index) => (
-                <div key={index} className='book-details'>
+            <div className="favitem">
+              {randomBooks.map((book, index) => (
+                <div key={index} className="book-details">
                   <h3>{book.title}</h3>
                   <p>Author: {book.author}</p>
                   <p>Price: ${book.price}</p>
                 </div>
               ))}
-
             </div>
           </div>
-          <div className='rightitem'>
-            <div className='prevorder'>
+          <div className="rightitem">
+            <div className="prevorder">
               <h2>Previous Orders</h2>
               {randomBooks.map((book, index) => (
-                <div key={index} className='book-details'>
+                <div key={index} className="book-details">
                   <h3>{book.title}</h3>
                   <p>Author: {book.author}</p>
                   <p>Price: ${book.price}</p>
@@ -88,7 +93,7 @@ export default function Userdash() {
               ))}
             </div>
             {/* Display cart items */}
-            <div className='cartdisp'>
+            <div className="cartdisp">
               <h4>Items in Cart: {cartItemCount}</h4>
               {cartItemNames.map((itemName, index) => (
                 <li key={index}>{itemName}</li>

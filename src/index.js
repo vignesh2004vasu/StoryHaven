@@ -5,6 +5,7 @@ import { Provider } from 'react-redux';
 import { store, persistor } from './Components/Store'; // Assuming store and persistor are exported from Store file
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import './Assets/global.css'
 
 ReactDOM.render(
   <React.StrictMode>

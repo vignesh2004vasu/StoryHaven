@@ -9,15 +9,13 @@
 .navbar-custom {
   display: flex;
   align-items: center;
-  justify-content: space-between; /* This evenly distributes the left and right sections */
+  justify-content: space-between;
   width: 100vw;
   height: 5rem;
-  /* background-color: #15037c; */
-  /* background-color: #9c560a; */
   background-color: #000000;
   position: sticky;
   top: 0;
-  padding: 0 20px; /* Add padding to the navbar for some space around its content */
+  padding: 0 20px;
 }
 
 /* Styles for the navigation links */
@@ -50,16 +48,16 @@
 
 .leftside {
   display: flex;
-  align-items: center; /* Vertically center the items */
+  align-items: center;
 }
+
 .rightside {
   display: flex;
   gap: 1.5rem;
   align-items: center;
 }
 
-.homelink
-{
+.homelink {
   margin-right: 30px;
 }
 
@@ -69,7 +67,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(to bottom,rgb(53, 232, 8),rgb(196, 248, 9));
+  background: linear-gradient(to bottom, rgb(53, 232, 8), rgb(196, 248, 9));
   border-radius: 5px;
   overflow: hidden;
   cursor: pointer;
@@ -90,4 +88,48 @@
   letter-spacing: 0.8px;
   color: rgb(19, 19, 19);
   font-size: 13.4px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar-custom {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .leftside {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .rightside {
+    width: 100%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .nav-links-custom {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .InputContainer {
+    width: 100%;
+  }
+
+  .input {
+    width: calc(100% - 30px);
+  }
+
+  .homelink {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links-custom {
+    display: none;
+  }
 }

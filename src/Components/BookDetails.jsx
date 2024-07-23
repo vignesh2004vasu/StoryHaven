@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
-import "../Assets/BookDetails.css"; 
+
 import NavHome from "./NavHome";
 import { addToCart } from './CartSlice';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';

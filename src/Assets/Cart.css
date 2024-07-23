@@ -1,6 +1,7 @@
 .cart-container {
     width: 80%;
     margin: 0 auto;
+    color: white;
   }
   
   .cart-items {
@@ -10,9 +11,11 @@
   
   .cart-item {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; 
     align-items: center;
     border: 1px solid #ccc;
+    background-color: white;
+    color: black;
     padding: 10px;
     margin-bottom: 10px;
   }

@@ -1,8 +1,8 @@
-import '../Assets/Register.css';
-import Navbar from './Navbar';
-import axios from 'axios';
-import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import "../Assets/Register.css";
+import Navbar from "./Navbar";
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Register() {
   let navigate = useNavigate();
@@ -10,7 +10,7 @@ export default function Register() {
   const [user, setUser] = useState({
     username: "",
     email: "",
-    password: ""
+    password: "",
   });
 
   const { username, email, password } = user;
@@ -23,7 +23,7 @@ export default function Register() {
     e.preventDefault();
 
     await axios.post("https://storyhaven-backend.onrender.com/user", user);
-    navigate("/");
+    navigate("/login");
   };
 
   return (
@@ -31,7 +31,7 @@ export default function Register() {
       <Navbar />
       <div className="login-box">
         <p>Register</p>
-        <br/>
+        <br />
         <form onSubmit={(e) => onSubmit(e)}>
           <div className="user-box">
             <input
@@ -63,8 +63,10 @@ export default function Register() {
             />
             <label htmlFor="password">Password</label>
           </div>
-          
-          <button type="submit" className='button'>Submit</button>
+
+          <button type="submit" className="button">
+            Submit
+          </button>
         </form>
       </div>
     </>

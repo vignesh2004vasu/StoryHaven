@@ -22,7 +22,7 @@ export default function NavBook() {
             <ul class="book-nav-links" id="book-home">
             
                     <Link
-                    to="/home"
+                    to="/"
                     >
                     <li><a href="#home">Home</a></li>
                     </Link>

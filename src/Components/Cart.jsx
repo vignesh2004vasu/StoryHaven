@@ -2,7 +2,8 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, clearCart } from './CartSlice';
 import '../Assets/Cart.css';
-import NavHome from './NavHome';
+
+import Navbar from './Navbar';
 
 const Cart = () => {
   const cartItems = useSelector((state) => state.cart.items);
@@ -23,7 +24,7 @@ const Cart = () => {
 
   return (
     <>
-      <NavHome />
+      <Navbar />
       <div className="cart-container">
         <h1>Shopping Cart</h1>
         {cartItems.length === 0 ? (
@@ -35,6 +36,7 @@ const Cart = () => {
                 <div className="item-details">
                   <img src={item.imageUrl} alt={item.title}></img>
                   <p>{item.title}</p>
+                  <br/>
                   <p>Price: {item.price}</p>
                 </div>
                 <button onClick={() => handleRemoveFromCart(item.id)}>Remove</button>
