@@ -5,11 +5,14 @@
     padding: 0;
     scrollbar-width: none;
     
+    
   }
 
   body{
     background-color: #333;
   }
+
+
 
   
 
@@ -408,6 +411,7 @@
     cursor: pointer;
   }
   .book-item h3 {
+    color: #1d1d1d;
     font-size: 1.25rem;
     margin: 10px 0;
   }

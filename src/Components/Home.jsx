@@ -25,14 +25,24 @@ export default function Home() {
     }
 
     const fetchBooks = async () => {
-      const toastId = toast.info("Please wait for backend render coldboot.", { autoClose: false });
+      const toastId = toast.info("Please wait for backend render coldboot.", {
+        autoClose: false,
+      });
       try {
-        const response = await axios.get("https://storyhaven-backend.onrender.com/books");
+        const response = await axios.get(" http://localhost:8080/books");
         setBooks(response.data || []);
         setFilteredBooks(response.data || []);
-        toast.update(toastId, { render: "Books fetched successfully!", type: toast.TYPE.SUCCESS, autoClose: 5000 });
+        toast.update(toastId, {
+          render: "Books fetched successfully!",
+          type: toast.TYPE.SUCCESS,
+          autoClose: 5000,
+        });
       } catch (error) {
-        toast.update(toastId, { render: "Error fetching books!", type: toast.TYPE.ERROR, autoClose: 5000 });
+        toast.update(toastId, {
+          render: "Error fetching books!",
+          type: toast.TYPE.ERROR,
+          autoClose: 5000,
+        });
         console.error(error);
       }
     };
@@ -88,11 +98,17 @@ export default function Home() {
       <div className="book-grid">
         {filteredBooks.map((book) => (
           <div className="book-item" key={book.id}>
-            <img
-              src={book.imageUrl}
-              alt={book.title}
+            <div
               onClick={() => handleClick(book)}
-              style={{ height: "200px" }}
+              style={{
+                backgroundImage: `url(${book.imageUrl})`,
+                backgroundSize: 'cover',
+                backgroundPosition: 'fit',
+                backgroundRepeat:'no-repeat',
+                height: '400px',
+                cursor: 'pointer',
+              }}
+              aria-label={book.title}
             />
             <h3>{book.title}</h3>
             <p>By {book.author}</p>
