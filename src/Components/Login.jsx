@@ -22,7 +22,9 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      const response = await axios.get(" http://localhost:8080/users");
+      const response = await axios.get(
+        "https://storyhaven-backend.onrender.com/users"
+      );
 
       const foundUser = response.data.find(
         (userData) =>

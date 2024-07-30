@@ -29,7 +29,9 @@ export default function Home() {
         autoClose: false,
       });
       try {
-        const response = await axios.get(" http://localhost:8080/books");
+        const response = await axios.get(
+          "https://storyhaven-backend.onrender.com/books"
+        );
         setBooks(response.data || []);
         setFilteredBooks(response.data || []);
         toast.update(toastId, {
@@ -102,11 +104,11 @@ export default function Home() {
               onClick={() => handleClick(book)}
               style={{
                 backgroundImage: `url(${book.imageUrl})`,
-                backgroundSize: 'cover',
-                backgroundPosition: 'fit',
-                backgroundRepeat:'no-repeat',
-                height: '400px',
-                cursor: 'pointer',
+                backgroundSize: "cover",
+                backgroundPosition: "fit",
+                backgroundRepeat: "no-repeat",
+                height: "400px",
+                cursor: "pointer",
               }}
               aria-label={book.title}
             />

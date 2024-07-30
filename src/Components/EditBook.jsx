@@ -32,13 +32,15 @@ function EditBook() {
   const onSubmit = async (e) => {
     e.preventDefault();
 
-    await axios.put(` http://localhost:8080/book/${id}`, book);
+    await axios.put(`https://storyhaven-backend.onrender.com/book/${id}`, book);
     navigate("/book");
   };
 
   const loadBook = async () => {
     try {
-      const result = await axios.get(` http://localhost:8080/book/${id}`);
+      const result = await axios.get(
+        `https://storyhaven-backend.onrender.com/book/${id}`
+      );
       const bookData = result.data;
       setBook((prevBook) => ({ ...prevBook, ...bookData }));
     } catch (error) {

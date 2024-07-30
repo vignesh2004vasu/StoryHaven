@@ -17,7 +17,9 @@ function Users() {
 
   const loadUsers = async () => {
     try {
-      const result = await axios.get(" http://localhost:8080/users");
+      const result = await axios.get(
+        "https://storyhaven-backend.onrender.com/users"
+      );
       setUsers(result.data.map((user) => ({ ...user, showPassword: false })));
     } catch (error) {
       alert("Error loading users");
@@ -26,7 +28,7 @@ function Users() {
 
   const deleteUser = async (id) => {
     try {
-      await axios.delete(` http://localhost:8080/user/${id}`);
+      await axios.delete(`https://storyhaven-backend.onrender.com/user/${id}`);
       loadUsers();
     } catch (error) {
       console.error("Error deleting user:", error);
